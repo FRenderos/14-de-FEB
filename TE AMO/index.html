@@ -4,263 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Yami 💜</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Poppins, sans-serif;
-    background: radial-gradient(circle at bottom, #1B2735, #090A0F);
-    overflow: hidden;
-    color: white;
-}
-
-/* ESTRELLAS */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:url("https://i.imgur.com/7bK0y2T.png");
-    opacity:0.2;
-    z-index:-1;
-}
-
-/* TEXTO */
-.romantic-text {
-    font-family:"Dancing Script", cursive;
-    font-size:1.9em;
-    text-align:center;
-    text-shadow:0 0 15px #fff;
-    margin:20px;
-    opacity:0;
-    animation: fadeIn 3s ease forwards;
-}
-
-@keyframes fadeIn{ to{opacity:1;} }
-
-/* CORAZONES */
-canvas{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-}
-
-/* TULIPANES */
-.tulips {
-    position:absolute;
-    bottom:5%;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:50px;
-}
-
-.tulip {
-    position:relative;
-    width:50px;
-    height:170px;
-    animation: sway 5s ease-in-out infinite alternate;
-}
-
-.stem {
-    position:absolute;
-    bottom:0;
-    left:50%;
-    width:5px;
-    height:120px;
-    background:#2ecc71;
-    transform:translateX(-50%);
-}
-
-.leaf {
-    position:absolute;
-    width:35px;
-    height:14px;
-    background:#2ecc71;
-    border-radius:50%;
-    bottom:60px;
-}
-.leaf.left { left:-30px; transform:rotate(-35deg); }
-.leaf.right { right:-30px; transform:rotate(35deg); }
-
-/* FLOR */
-.flower {
-    position:absolute;
-    top:0;
-    left:50%;
-    width:50px;
-    height:40px;
-    transform:translateX(-50%);
-}
-
-.petal {
-    position:absolute;
-    width:25px;
-    height:35px;
-    background:#9b5de5;
-    border-radius:50% 50% 0 0;
-    box-shadow:0 0 15px #9b5de5;
-}
-.petal.left { left:0; transform:rotate(-20deg); }
-.petal.right { right:0; transform:rotate(20deg); }
-.petal.center { left:12px; top:-5px; background:#b983ff; }
-
-/* ANIMACIÓN */
-@keyframes sway {
-    from { transform:rotate(-4deg); }
-    to { transform:rotate(4deg); }
-}
-
-/* GALERÍA */
-.gallery {
-    position:absolute;
-    top:10%;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.gallery img {
-    width:120px;
-    height:160px;
-    object-fit:cover;
-    border-radius:15px;
-    box-shadow:0 0 15px hotpink;
-    transition:0.3s;
-}
-.gallery img:hover{
-    transform:scale(1.1);
-}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  .romantic-text{font-size:1.5em;}
-  .tulips{gap:25px;}
-  .gallery img{width:90px;height:120px;}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onclick="document.getElementById('musica').play()">
 
-<!-- 🎵 MÚSICA (BAJITO) -->
-<audio id="bgMusic" autoplay loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/Its_time_for_adventure_/Komiku_-_12_-_Friends.mp3">
+<h1 class="titulo">
+Quién iba a pensar que un día éramos desconocidos y ahora celebramos nuestro primer 14 de febrero...
+<br>Gracias por hacerme mas feliz y por devolver el brillo a mis ojos, te amo mucho Yamitha, que lo nuesto no sea solo algo temporal sino algo par toda la vida
+
+<br>Yami, eres lo más bonito que me a pasado 💜
+</h1>
+
+<!-- Galería -->
+<div class="galeria">
+  <img src="imagenes/foto1.jpg">
+  <img src="imagenes/foto2.jpg">
+</div>
+
+<!-- Tulipanes -->
+<div class="tulipanes">
+  <div class="tulipan"></div>
+  <div class="tulipan"></div>
+  <div class="tulipan"></div>
+</div>
+
+<!-- Música -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<canvas id="hearts"></canvas>
-
-<div class="romantic-text" id="text"></div>
-
-<!-- GALERÍA -->
-<div class="gallery">
-    <!-- CAMBIA ESTAS URL POR TUS FOTOS DE GIT -->
-   <img src="IMG_1654.jpg">
-   <img src="IMG_1664.jpg">
-
-</div>
-
-<!-- TULIPANES -->
-<div class="tulips">
-    <div class="tulip">
-        <div class="flower">
-            <div class="petal left"></div>
-            <div class="petal right"></div>
-            <div class="petal center"></div>
-        </div>
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-    </div>
-
-    <div class="tulip">
-        <div class="flower">
-            <div class="petal left"></div>
-            <div class="petal right"></div>
-            <div class="petal center"></div>
-        </div>
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-    </div>
-
-    <div class="tulip">
-        <div class="flower">
-            <div class="petal left"></div>
-            <div class="petal right"></div>
-            <div class="petal center"></div>
-        </div>
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-    </div>
-</div>
-
-<script>
-// BAJAR VOLUMEN
-const music = document.getElementById("bgMusic");
-music.volume = 0.15; // 0.1 muy bajo, 0.5 normal
-
-// TEXTO ESCRIBIÉNDOSE
-const mensaje = `Quién iba a pensar que un día éramos desconocidos y ahora celebramos nuestro primer 14 de febrero...
-
-Yami, eres lo más bonito que me pasó, no sabes cuánto me importas y me encanta hacerte feliz. Te amo mucho y espero que lo nuestro no sea algo temporal ❤️
-
-Gracias por existir y hacerme feliz cada día, y por devolver el brillo a mis ojos.`;
-
-let i=0;
-const textoDiv=document.getElementById("text");
-
-function escribir(){
-  if(i<mensaje.length){
-    textoDiv.innerHTML += mensaje.charAt(i);
-    i++;
-    setTimeout(escribir,40);
-  }
-}
-escribir();
-
-// CORAZONES
-const canvas = document.getElementById("hearts");
-const ctx = canvas.getContext("2d");
-let hearts = [];
-
-function resize(){
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-}
-resize();
-addEventListener("resize", resize);
-
-function createHeart(){
-  hearts.push({
-    x: Math.random()*canvas.width,
-    y: canvas.height + 10,
-    size: Math.random()*20 + 10,
-    speed: Math.random()*1.2 + 0.5
-  });
-}
-setInterval(createHeart, 250);
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  hearts.forEach((h,i)=>{
-    ctx.font = h.size+"px serif";
-    ctx.fillStyle="rgba(255,100,150,0.8)";
-    ctx.fillText("❤", h.x, h.y);
-    h.y -= h.speed;
-    if(h.y < -20) hearts.splice(i,1);
-  });
-  requestAnimationFrame(draw);
-}
-draw();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
-
